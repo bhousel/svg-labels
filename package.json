@@ -1,0 +1,20 @@
+{
+  "name": "svg-labels",
+  "description": "Easy SVG Labels",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "ISC",
+  "author": "Bryan Housel <bryan@mapbox.com>",
+  "repository": "bhousel/svg-labels",
+  "keywords": ["svg", "github", "labels"],
+  "dependencies": {
+    "koa": "2.2.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
