@@ -1,5 +1,18 @@
 const pixelWidth = require('string-pixel-width');
 
+function getHexColor(str) {
+    if (typeof str !== 'string') {
+        return null;
+    }
+    const match = str.match(/^#?(?:[0-9a-f]{3}){1,2}$/i);
+    if (match !== null) {
+        let color = match[0];
+        return (color.charAt(0) === '#') ? color : `#${color}`;
+    } else {
+        return null;
+    }
+}
+
 var makeLabel = function(options) {
     options = options || {};
     const text = options.text || 'bug';
@@ -11,8 +24,8 @@ var makeLabel = function(options) {
     const width = +options.width || Math.round(pixelWidth(text, { size: fontsizeadjust }) + pad);
     const height = Math.round(fontsize * 1.6666);
     const roundness = Math.round(height * 0.1);
-    const fgcolor = options.fgcolor || '#ffffff';
-    const bgcolor = options.bgcolor || '#ee0701';
+    const fgcolor = getHexColor(options.fgcolor) || '#ffffff';
+    const bgcolor = getHexColor(options.bgcolor) || '#ee0701';
 
     return (
         '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + width + '" height="' + height + '">' +
