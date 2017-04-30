@@ -24,16 +24,14 @@ var makeLabel = function(options) {
     const width = +options.width || Math.round(pixelWidth(text, { size: fontsizeadjust }) + pad);
     const height = Math.round(fontsize * 1.6666);
     const roundness = Math.round(height * 0.1);
-    const fgcolor = getHexColor(options.fgcolor) || '#ffffff';
+    const fgcolor = getHexColor(options.fgcolor) || '#fff';
     const bgcolor = getHexColor(options.bgcolor) || '#ee0701';
 
     return (
-        '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + width + '" height="' + height + '">' +
-        '<rect width="' + width +'" height="' + height + '" rx="' + roundness + '" ry="' + roundness + '" fill="' + bgcolor + '"/>' +
-        '<text x="' + Math.round(width / 2) + '" y="' + Math.round(height * 0.7) + '" fill="' + fgcolor + '" text-anchor="middle" ' +
-           'font-family="' + fontfamily + '" font-size="' + fontsize + '" font-weight="' + fontweight + '">' +
-         text + '</text>' +
-        '</svg>'
+`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
+<rect width="${width}" height="${height}" rx="${roundness}" ry="${roundness}" fill="${bgcolor}"/>
+<text x="${Math.round(width / 2)}" y="${Math.round(height * 0.7)}" fill="${fgcolor}" text-anchor="middle"
+font-family="${fontfamily}" font-size="${fontsize}" font-weight="${fontweight}">${text}</text></svg>`
     );
 }
 
