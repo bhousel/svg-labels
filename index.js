@@ -23,13 +23,17 @@ var makeLabel = function(options) {
     const pad = Math.round(fontsize * 0.75);
     const width = +options.width || Math.round(pixelWidth(text, { size: fontsizeadjust }) + pad);
     const height = Math.round(fontsize * 1.6666);
-    const roundness = Math.round(height * 0.1);
+    const roundness = Math.max(1, Math.round(height * 0.1));
+    const strokeopacity = +options.strokeopacity || 0.12;
+    const strokewidth = +options.strokewidth || Math.max(1, Math.round(height * 0.05));
     const fgcolor = getHexColor(options.fgcolor) || '#fff';
     const bgcolor = getHexColor(options.bgcolor) || '#ee0701';
+    const strokecolor = getHexColor(options.strokecolor) || '#273135';
 
     return (
 `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
-<rect width="${width}" height="${height}" rx="${roundness}" ry="${roundness}" fill="${bgcolor}"/>
+<rect width="${width}" height="${height}" rx="${roundness}" ry="${roundness}" fill="${bgcolor}"
+stroke="${strokecolor}" stroke-width="${strokewidth}" stroke-opacity="${strokeopacity}" stroke-linejoin="round"/>
 <text x="${Math.round(width / 2)}" y="${Math.round(height * 0.7)}" fill="${fgcolor}" text-anchor="middle"
 font-family="${fontfamily}" font-size="${fontsize}" font-weight="${fontweight}">${text}</text></svg>`
     );
