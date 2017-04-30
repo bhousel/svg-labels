@@ -10,8 +10,8 @@ qspatch(app, 'first');
 
 router
     .get('/label', ctx => {
-        var l = makeLabel(ctx.request.query);
-        ctx.body = l;
+        ctx.response.type = 'image/svg+xml';
+        ctx.response.body = makeLabel(ctx.request.query);
     });
 
 app
