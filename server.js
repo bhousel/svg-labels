@@ -1,17 +1,23 @@
-var Koa = require('koa');
-var Router = require('koa-router');
-var qspatch = require('koa-qs');
-var pixelWidth = require('string-pixel-width');
-var makeLabel = require('.');
+const Koa = require('koa');
+const Router = require('koa-router');
+const qspatch = require('koa-qs');
+const send = require('koa-send');
+const makeLabel = require('.');
 
-var app = new Koa();
-var router = new Router();
+const app = new Koa();
+const router = new Router();
 qspatch(app, 'first');
 
 router
     .get('/svg', ctx => {
         ctx.response.type = 'image/svg+xml';
         ctx.response.body = makeLabel(ctx.request.query);
+    })
+    .get('/', async ctx => {
+        await send(ctx, '/docs/index.html');
+    })
+    .get('*', async ctx => {
+        await send(ctx, ctx.path, { root: __dirname + '/docs' });
     });
 
 app
