@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/svg-labels.svg)](https://badge.fury.io/js/svg-labels)
+
 ## svg-labels
 
 :bookmark: Generate GitHub-style labels in SVG
