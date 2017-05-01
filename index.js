@@ -1,4 +1,5 @@
 const pixelWidth = require('string-pixel-width');
+const xmlEscape = require('xml-escape');
 
 function getHexColor(str) {
     if (typeof str !== 'string') {
@@ -23,6 +24,8 @@ var makeLabel = function(options) {
     const pad = Math.round(fontsize * 0.75);
     const width = +options.width || Math.round(pixelWidth(text, { size: fontsizeadjust }) + pad);
     const height = Math.round(fontsize * 1.6666);
+    const textx = Math.round(width / 2);
+    const texty = Math.round(height * 0.7);
     const roundness = Math.max(1, Math.round(height * 0.1));
     const strokeopacity = +options.strokeopacity || 0.12;
     const strokewidth = +options.strokewidth || Math.max(1, Math.round(height * 0.05));
@@ -32,10 +35,8 @@ var makeLabel = function(options) {
 
     return (
 `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
-<rect width="${width}" height="${height}" rx="${roundness}" ry="${roundness}" fill="${bgcolor}"
-stroke="${strokecolor}" stroke-width="${strokewidth}" stroke-opacity="${strokeopacity}" stroke-linejoin="round"/>
-<text x="${Math.round(width / 2)}" y="${Math.round(height * 0.7)}" fill="${fgcolor}" text-anchor="middle"
-font-family="${fontfamily}" font-size="${fontsize}" font-weight="${fontweight}">${text}</text></svg>`
+<rect width="${width}" height="${height}" rx="${roundness}" ry="${roundness}" fill="${bgcolor}" stroke="${strokecolor}" stroke-width="${strokewidth}" stroke-opacity="${strokeopacity}" stroke-linejoin="round"/>
+<text x="${textx}" y="${texty}" fill="${fgcolor}" text-anchor="middle" font-family="${xmlEscape(fontfamily)}" font-size="${fontsize}" font-weight="${fontweight}">${xmlEscape(text)}</text></svg>`
     );
 }
 

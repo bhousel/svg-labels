@@ -11,7 +11,8 @@
     "koa": "2.2.0",
     "koa-router": "7.1.1",
     "koa-qs": "2.0.0",
-    "string-pixel-width": "1.0.7"
+    "string-pixel-width": "1.0.7",
+    "xml-escape": "1.1.0"
   },
   "devDependencies": {},
   "engines": {
