@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>labl.es</title>
+    <meta name="description" content="Generate GitHub-style labels in SVG">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <style type="text/css">
+        body {
+            font: normal 16px/1.6667 "-apple-system", BlinkMacSystemFont,
+                "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+                "Fira Sans", "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
+            text-align: center;
+        }
+        a {
+            color: #7092ff;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #597be7;
+        }
+        div, header, footer, section {
+            padding-top: 20px;
+            max-width: 768px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        footer {
+            font-size: 12px;
+        }
+        footer, section {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        img {
+            vertical-align: middle;
+            padding: 0 8px;
+        }
+        .labels {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .labels img {
+            flex: 0 0 content;
+        }
+        .big {
+            font-size: 20px;
+        }
+        table {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        td {
+            padding: 0px;
+            text-align: left;
+        }
+        td code {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="http://labl.es/svg?text=labl.es&fgcolor=fff&bgcolor=0052cc&fontsize=40"/>
+        <div>Generate GitHub-style SVG labels.</div>
+        <div class="labels">
+        <img src="http://labl.es/svg?text=bug&fgcolor=fff&bgcolor=ee0701"/>
+        <img src="http://labl.es/svg?text=duplicate&fgcolor=000&bgcolor=ccc"/>
+        <img src="http://labl.es/svg?text=enhancement&fgcolor=000&bgcolor=84b6eb"/>
+        <img src="http://labl.es/svg?text=help%20wanted&fgcolor=fff&bgcolor=128A0C"/>
+        <img src="http://labl.es/svg?text=invalid&fgcolor=000&bgcolor=e6e6e6"/>
+        <img src="http://labl.es/svg?text=question&fgcolor=fff&bgcolor=cc317c"/>
+        <img src="http://labl.es/svg?text=wontfix&fgcolor=000&bgcolor=fff"/>
+        </div>
+    </header>
+
+    <section>
+        <h3>Usage</h3>
+        <p>Generate labels like this:</p>
+        <code>http://labl.es/svg?&lt;options&gt;</code>
+        <p>Embed on GitHub in markdown or issues:</p>
+        <code>![bug](http://labl.es/svg?text=bug&bgcolor=ee0701)</code>
+    </section>
+
+    <section>
+        <h3>Examples</h3>
+        <table>
+            <tr>
+                <td><code>http://labl.es/svg?text=hello%20world</code></td>
+                <td><img src="http://labl.es/svg?text=hello%20world"/></td>
+            </tr>
+            <tr>
+                <td><code>http://labl.es/svg?text=fgcolor%20efef00&fgcolor=efef00</code></td>
+                <td><img src="http://labl.es/svg?text=fgcolor%20efef00&fgcolor=efef00"/></td>
+            </tr>
+            <tr>
+                <td><code>http://labl.es/svg?text=bgcolor%20128a0c&bgcolor=128a0c</code></td>
+                <td><img src="http://labl.es/svg?text=bgcolor%20128a0c&bgcolor=128a0c"/></td>
+            </tr>
+            <tr>
+                <td><code>http://labl.es/svg?text=bgcolor%20%26%20fgcolor&fgcolor=000&bgcolor=84b6eb</code></td>
+                <td><img src="http://labl.es/svg?text=bgcolor%20%26%20fgcolor&fgcolor=000&bgcolor=84b6eb"/></td>
+            </tr>
+            <tr>
+                <td><code>http://labl.es/svg?text=fontsize&fontsize=20</code></td>
+                <td><img src="http://labl.es/svg?text=fontsize&fontsize=20"/></td>
+            </tr>
+            <tr>
+                <td><code>http://labl.es/svg?text=fontweight&fontweight=200</code></td>
+                <td><img src="http://labl.es/svg?text=fontweight&fontweight=200"/></td>
+            </tr>
+            <tr>
+                <td><code>http://labl.es/svg?text=width&width=150</code></td>
+                <td><img src="http://labl.es/svg?text=width&width=150"/></td>
+            </tr>
+            <tr>
+                <td><code>http://labl.es/svg?text=fontfamily&width=100&fontfamily=Courier%20New</code></td>
+                <td><img src="http://labl.es/svg?text=fontfamily&width=100&fontfamily=Courier%20New"/></td>
+            </tr>
+            <tr>
+                <td><code>http://labl.es/svg?text=strokeopacity&bgcolor=ddd&strokeopacity=1</code></td>
+                <td><img src="http://labl.es/svg?text=strokeopacity&bgcolor=ddd&strokeopacity=1"/></td>
+            </tr>
+            <tr>
+                <td><code>http://labl.es/svg?text=strokewidth&bgcolor=ddd&strokewidth=8</code></td>
+                <td><img src="http://labl.es/svg?text=strokewidth&bgcolor=ddd&strokewidth=8"/></td>
+            </tr>
+            <tr>
+                <td><code>http://labl.es/svg?text=strokecolor&bgcolor=ddd&strokewidth=8&strokecolor=00f</code></td>
+                <td><img src="http://labl.es/svg?text=strokecolor&bgcolor=ddd&strokewidth=8&strokecolor=00f"/></td>
+            </tr>
+        </table>
+    </section>
+
+    <footer>
+        <a href="https://github.com/bhousel/svg-labels">
+            <img width="20" height="20" src="GitHub-Mark-32px.png"/>GitHub: bhousel/svg-labels
+        </a>
+    </footer>
+
+</body>
+</html>
