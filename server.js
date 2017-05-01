@@ -9,7 +9,7 @@ var router = new Router();
 qspatch(app, 'first');
 
 router
-    .get('/label', ctx => {
+    .get('/svg', ctx => {
         ctx.response.type = 'image/svg+xml';
         ctx.response.body = makeLabel(ctx.request.query);
     });
