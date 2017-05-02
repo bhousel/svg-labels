@@ -13,13 +13,13 @@ text and colors.
 We can get around this by styling the text and colors in an SVG "image" and
 embedding that instead:
 
-![bug](http://labl.es/svg?text=bug&fgcolor=fff&bgcolor=ee0701)
-![duplicate](http://labl.es/svg?text=duplicate&fgcolor=000&bgcolor=ccc)
-![enhancement](http://labl.es/svg?text=enhancement&fgcolor=000&bgcolor=84b6eb)
-![help wanted](http://labl.es/svg?text=help%20wanted&fgcolor=fff&bgcolor=128A0C)
-![invalid](http://labl.es/svg?text=invalid&fgcolor=000&bgcolor=e6e6e6)
-![question](http://labl.es/svg?text=question&fgcolor=fff&bgcolor=cc317c)
-![wontfix](http://labl.es/svg?text=wontfix&fgcolor=000&bgcolor=fff)
+![bug](http://labl.es/svg?text=bug&bgcolor=ee0701)
+![duplicate](http://labl.es/svg?text=duplicate&bgcolor=ccc)
+![enhancement](http://labl.es/svg?text=enhancement&bgcolor=84b6eb)
+![help wanted](http://labl.es/svg?text=help%20wanted&bgcolor=128A0C)
+![invalid](http://labl.es/svg?text=invalid&bgcolor=e6e6e6)
+![question](http://labl.es/svg?text=question&bgcolor=cc317c)
+![wontfix](http://labl.es/svg?text=wontfix&bgcolor=fff)
 
 The code for this is hosted on [labl.es](http://labl.es).
 
@@ -58,7 +58,7 @@ This is the same code that serves up [labl.es](http://labl.es).
 
 ### Bugs
 
-There may be <sub>![bugs](http://labl.es/svg?text=bugs&fgcolor=fff&bgcolor=ee0701)</sub> !
+There may be <sub>![bugs](http://labl.es/svg?text=bugs&bgcolor=ee0701)</sub> !
 
 Report any issues here:  https://github.com/bhousel/svg-labels/issues
 
