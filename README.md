@@ -2,7 +2,7 @@
 
 ## svg-labels
 
-:bookmark: Generate GitHub-style labels in SVG
+:label: Generate GitHub-style labels in SVG
 
 ### What is it?
 
@@ -39,8 +39,8 @@ It works just like similar badge generator sites like [shields.io](shields.io) o
 | option.width         | number | calculated        | Label width - calculated based on fontsize, but you can override it. |
 | option.strokeopacity | number | 0.12              | Opacity for the shadow outline. |
 | option.strokewidth   | number | calculated        | Shadow stroke width - also calculated but you can override it. |
-| option.fgcolor       | hex    | #ffffff           | Foreground color of the label. |
 | option.bgcolor       | hex    | #ee0701           | Background color of the label. |
+| option.fgcolor       | hex    | #333026 / #ffffff | Foreground color of the label - calculated for light/dark backgrounds but you can override it. |
 | option.strokecolor   | hex    | #273135           | Stroke color for the shadow outline. |
 
 All hex colors can be passed either as 3 or 6 characters, and the '#' is optional.

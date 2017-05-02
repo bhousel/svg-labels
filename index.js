@@ -1,6 +1,7 @@
 const pixelWidth = require('string-pixel-width');
 const xmlEscape = require('xml-escape');
 
+
 function getHexColor(str) {
     if (typeof str !== 'string') {
         return null;
@@ -13,6 +14,17 @@ function getHexColor(str) {
         return null;
     }
 }
+
+// https://www.w3.org/TR/AERT#color-contrast
+// https://trendct.org/2016/01/22/how-to-choose-a-label-color-to-contrast-with-background/
+function getBrightness(color) {
+    const short = (color.length < 5);
+    const r = parseInt(short ? color[1] + color[1] : color[1] + color[2], 16);
+    const g = parseInt(short ? color[2] + color[2] : color[3] + color[4], 16);
+    const b = parseInt(short ? color[3] + color[3] : color[5] + color[6], 16);
+    return ((r * 299) + (g * 587) + (b * 114)) / 1000;
+}
+
 
 var makeLabel = function(options) {
     options = options || {};
@@ -29,8 +41,8 @@ var makeLabel = function(options) {
     const roundness = Math.max(1, Math.round(height * 0.1));
     const strokeopacity = +options.strokeopacity || 0.12;
     const strokewidth = +options.strokewidth || Math.max(1, Math.round(height * 0.05));
-    const fgcolor = getHexColor(options.fgcolor) || '#fff';
     const bgcolor = getHexColor(options.bgcolor) || '#ee0701';
+    const fgcolor = getHexColor(options.fgcolor) || (getBrightness(bgcolor) > 140.5 ? '#333026' : '#fff');
     const strokecolor = getHexColor(options.strokecolor) || '#273135';
 
     return (
