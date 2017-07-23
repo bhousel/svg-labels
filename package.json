@@ -6,7 +6,11 @@
   "license": "ISC",
   "author": "Bryan Housel <bryan@mapbox.com>",
   "repository": "bhousel/svg-labels",
-  "keywords": ["svg", "github", "labels"],
+  "keywords": [
+    "svg",
+    "github",
+    "labels"
+  ],
   "dependencies": {
     "koa": "2.2.0",
     "koa-router": "7.1.1",
@@ -15,11 +19,15 @@
     "string-pixel-width": "1.0.7",
     "xml-escape": "1.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "coveralls": "^2.11.0",
+    "tap": "^10.1.0"
+  },
   "engines": {
     "node": ">=7.6.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "tap --cov test/*.js"
   }
 }
