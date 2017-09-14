@@ -26,7 +26,7 @@ embedding that instead:
 
 The code for this is hosted on [labl.es](https://labl.es).
 
-It works just like similar badge generator sites like [shields.io](shields.io) or [badge.fury.io](badge.fury.io)
+It works just like similar badge generator sites like [shields.io](https://shields.io/) or [badge.fury.io](https://badge.fury.io/)
 
 
 ### What's included
