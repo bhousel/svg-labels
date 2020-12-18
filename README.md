@@ -1,6 +1,5 @@
+[![build](https://github.com/bhousel/svg-labels/workflows/build/badge.svg)](https://github.com/bhousel/svg-labels/actions?query=workflow%3A%22build%22)
 [![npm version](https://badge.fury.io/js/svg-labels.svg)](https://badge.fury.io/js/svg-labels)
-[![Build Status](https://secure.travis-ci.org/bhousel/svg-labels.svg)](http://travis-ci.org/bhousel/svg-labels)
-[![Coverage Status](https://coveralls.io/repos/github/bhousel/svg-labels/badge.svg?branch=master)](https://coveralls.io/github/bhousel/svg-labels?branch=master)
 
 
 ## svg-labels

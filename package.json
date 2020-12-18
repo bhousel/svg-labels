@@ -1,11 +1,13 @@
 {
   "name": "svg-labels",
-  "description": "Easy SVG Labels",
   "version": "1.1.1",
-  "main": "index.js",
   "license": "ISC",
-  "author": "Bryan Housel <bryan@mapbox.com>",
-  "repository": "bhousel/svg-labels",
+  "description": "Easy SVG Labels",
+  "repository": "github:bhousel/svg-labels",
+  "main": "index.js",
+  "contributors": [
+    "Bryan Housel <bhousel@gmail.com> (https://github.com/bhousel)"
+  ],
   "keywords": [
     "svg",
     "github",
@@ -16,15 +18,15 @@
     "koa-qs": "2.0.0",
     "koa-router": "7.1.1",
     "koa-send": "4.1.0",
-    "string-pixel-width": "1.0.7",
+    "string-pixel-width": "1.10.0",
     "xml-escape": "1.1.0"
   },
   "devDependencies": {
-    "coveralls": "^2.13.1",
-    "tap": "^10.1.0"
+    "coveralls": "^3.1.0",
+    "tap": "^14.10.08"
   },
   "engines": {
-    "node": ">=7.6.0"
+    "node": ">=10"
   },
   "scripts": {
     "start": "node server.js",
