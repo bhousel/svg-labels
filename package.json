@@ -14,16 +14,16 @@
     "labels"
   ],
   "dependencies": {
-    "koa": "2.13.0",
-    "koa-qs": "2.0.0",
-    "koa-router": "7.1.1",
-    "koa-send": "4.1.0",
-    "string-pixel-width": "1.10.0",
-    "xml-escape": "1.1.0"
+    "koa": "~2.13.0",
+    "koa-qs": "~3.0.0",
+    "koa-router": "~10.0.0",
+    "koa-send": "~5.0.1",
+    "string-pixel-width": "~1.10.0",
+    "xml-escape": "~1.1.0"
   },
   "devDependencies": {
     "coveralls": "^3.1.0",
-    "tap": "^14.10.08"
+    "tap": "^14.11.0"
   },
   "engines": {
     "node": ">=10"
