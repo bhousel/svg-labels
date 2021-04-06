@@ -30,6 +30,6 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "tap --cov test/*.js"
+    "test": "tap --reporter terse --no-coverage test/*.js"
   }
 }

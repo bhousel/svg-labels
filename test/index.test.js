@@ -1,18 +1,16 @@
-'use strict';
-
-var fs = require('fs');
-var path = require('path');
-var test = require('tap').test;
-var makeLabel = require('../.');
+const fs = require('fs');
+const path = require('path');
+const test = require('tap').test;
+const makeLabel = require('../.');
 
 
 function fixture(name) {
-    var buffer = fs.readFileSync(path.normalize(`${__dirname}//fixtures//${name}.svg`));
-    return buffer.toString();
+  const buffer = fs.readFileSync(path.normalize(`${__dirname}//fixtures//${name}.svg`));
+  return buffer.toString();
 }
 
 
-test('makeLabel', function(t) {
+test('makeLabel', t => {
 
 // | option.text          | string | 'bug'             | Label text - will appear centered on the label. |
 // | option.fontfamily    | string | 'Helvetica,Arial' | Text font - we just pass this directly into the SVG file. |
@@ -25,118 +23,116 @@ test('makeLabel', function(t) {
 // | option.fgcolor       | hex    | #333026 / #ffffff | Foreground color of the label - calculated for light/dark backgrounds but you can override it. |
 // | option.strokecolor   | hex    | #273135           | Stroke color for the shadow outline. |
 
+  t.test('defaults', t => {
+    const results = makeLabel();
+    t.same(results, fixture('defaults'));
+    t.end();
+  });
 
-    t.test('defaults', function(t) {
-        var results = makeLabel();
-        t.deepEqual(results, fixture('defaults'));
-        t.end();
-    });
-
-
-    t.test('text', function(t) {
-        t.test('sets text', function(t) {
-            var results = makeLabel({ text: 'hello world' });
-            t.deepEqual(results, fixture('text1'));
-            t.end();
-        });
-
-        t.end();
-    });
-
-    t.test('fgcolor', function(t) {
-        t.test('sets fgcolor', function(t) {
-            var results = makeLabel({ fgcolor: 'efef00' });
-            t.deepEqual(results, fixture('fgcolor1'));
-            t.end();
-        });
-
-        t.end();
-    });
-
-    t.test('bgcolor', function(t) {
-        t.test('sets dark bgcolor', function(t) {
-            var results = makeLabel({ bgcolor: '128a0c' });
-            t.deepEqual(results, fixture('bgcolor1'));
-            t.end();
-        });
-        t.test('sets light bgcolor', function(t) {
-            var results = makeLabel({ bgcolor: '84b6eb' });
-            t.deepEqual(results, fixture('bgcolor2'));
-            t.end();
-        });
-
-        t.end();
-    });
-
-    t.test('fontsize', function(t) {
-        t.test('sets fontsize', function(t) {
-            var results = makeLabel({ fontsize: '20' });
-            t.deepEqual(results, fixture('fontsize'));
-            t.end();
-        });
-
-        t.end();
-    });
-
-    t.test('fontweight', function(t) {
-        t.test('sets fontweight', function(t) {
-            var results = makeLabel({ fontweight: '200' });
-            t.deepEqual(results, fixture('fontweight'));
-            t.end();
-        });
-
-        t.end();
-    });
-
-    t.test('width', function(t) {
-        t.test('sets width', function(t) {
-            var results = makeLabel({ width: '150' });
-            t.deepEqual(results, fixture('width'));
-            t.end();
-        });
-
-        t.end();
-    });
-
-    t.test('fontfamily', function(t) {
-        t.test('sets fontfamily', function(t) {
-            var results = makeLabel({ fontfamily: 'Courier New' });
-            t.deepEqual(results, fixture('fontfamily'));
-            t.end();
-        });
-
-        t.end();
-    });
-
-    t.test('strokeopacity', function(t) {
-        t.test('sets strokeopacity', function(t) {
-            var results = makeLabel({ strokeopacity: '1' });
-            t.deepEqual(results, fixture('strokeopacity'));
-            t.end();
-        });
-
-        t.end();
-    });
-
-    t.test('strokewidth', function(t) {
-        t.test('sets strokewidth', function(t) {
-            var results = makeLabel({ strokewidth: '8' });
-            t.deepEqual(results, fixture('strokewidth'));
-            t.end();
-        });
-
-        t.end();
-    });
-
-    t.test('strokecolor', function(t) {
-        t.test('sets strokecolor', function(t) {
-            var results = makeLabel({ strokecolor: '00f' });
-            t.deepEqual(results, fixture('strokecolor'));
-            t.end();
-        });
-
-        t.end();
+  t.test('text', t => {
+    t.test('sets text', t => {
+      const results = makeLabel({ text: 'hello world' });
+      t.same(results, fixture('text1'));
+      t.end();
     });
 
     t.end();
+  });
+
+  t.test('fgcolor', t => {
+    t.test('sets fgcolor', t => {
+      const results = makeLabel({ fgcolor: 'efef00' });
+      t.same(results, fixture('fgcolor1'));
+      t.end();
+    });
+
+    t.end();
+  });
+
+  t.test('bgcolor', t => {
+    t.test('sets dark bgcolor', t => {
+      const results = makeLabel({ bgcolor: '128a0c' });
+      t.same(results, fixture('bgcolor1'));
+      t.end();
+    });
+    t.test('sets light bgcolor', t => {
+      const results = makeLabel({ bgcolor: '84b6eb' });
+      t.same(results, fixture('bgcolor2'));
+      t.end();
+    });
+
+    t.end();
+  });
+
+  t.test('fontsize', t => {
+    t.test('sets fontsize', t => {
+      const results = makeLabel({ fontsize: '20' });
+      t.same(results, fixture('fontsize'));
+      t.end();
+    });
+
+    t.end();
+  });
+
+  t.test('fontweight', t => {
+    t.test('sets fontweight', t => {
+      const results = makeLabel({ fontweight: '200' });
+      t.same(results, fixture('fontweight'));
+      t.end();
+    });
+
+    t.end();
+  });
+
+  t.test('width', t => {
+    t.test('sets width', t => {
+      const results = makeLabel({ width: '150' });
+      t.same(results, fixture('width'));
+      t.end();
+    });
+
+    t.end();
+  });
+
+  t.test('fontfamily', t => {
+    t.test('sets fontfamily', t => {
+      const results = makeLabel({ fontfamily: 'Courier New' });
+      t.same(results, fixture('fontfamily'));
+      t.end();
+    });
+
+    t.end();
+  });
+
+  t.test('strokeopacity', t => {
+    t.test('sets strokeopacity', t => {
+      const results = makeLabel({ strokeopacity: '1' });
+      t.same(results, fixture('strokeopacity'));
+      t.end();
+    });
+
+    t.end();
+  });
+
+  t.test('strokewidth', t => {
+    t.test('sets strokewidth', t => {
+      const results = makeLabel({ strokewidth: '8' });
+      t.same(results, fixture('strokewidth'));
+      t.end();
+    });
+
+    t.end();
+  });
+
+  t.test('strokecolor', t => {
+    t.test('sets strokecolor', t => {
+      const results = makeLabel({ strokecolor: '00f' });
+      t.same(results, fixture('strokecolor'));
+      t.end();
+    });
+
+    t.end();
+  });
+
+  t.end();
 });
