@@ -1,6 +1,6 @@
 #/bin/bash
 
-# Remember to run `npm run server` first.
+# Remember to run `npm run start` first.
 
 rm -rf *.svg
 
