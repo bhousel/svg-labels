@@ -57,7 +57,7 @@ This is the same code that serves up [labl.es](https://labl.es).
 
 ### Bugs
 
-There may be <sub>![bugs](https://svg-labels-dark.herokuapp.com/svg?text=bugs&color=ee0701)</sub> !
+There may be <img align=center src="https://svg-labels-dark.herokuapp.com/svg?text=bugs&color=ee0701" /> !
 
 Report any issues here:  https://github.com/BenCinn/svg-labels-dark/issues
 
