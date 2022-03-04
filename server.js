@@ -19,6 +19,8 @@ router
     await send(ctx, ctx.path, { root: __dirname + '/docs' });
   });
 
+var port = process.env.PORT || 3000
+
 app
   .use(router.routes())
-  .listen(8080, () => console.log('Koa is listening to http://localhost:8080') );
+  .listen(port, () => console.log('Koa is listening to http://localhost:' + port) );
