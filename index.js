@@ -1,6 +1,7 @@
 const pixelWidth = require('string-pixel-width');
 const xmlEscape = require('xml-escape');
-const tinycolor = require('tinycolor2')
+const valuesjs = require('values.js');
+const Values = require('values.js');
 
 
 function getHexColor(str) {
@@ -32,7 +33,7 @@ var makeLabel = function(options) {
   // const fontfamily = options.fontfamily || 'Helvetica,Arial';
   const fontfamily = options.fontfamily || '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif';
   const fontsize = +options.fontsize || 12;
-  const fontweight = +options.fontweight || 600;
+  const fontweight = +options.fontweight || 500;
   const fontsizeadjust = Math.round(fontsize * (fontweight > 500 ? 1.1 : 1));
   // const pad = Math.round(fontsize * 0.75);
   const pad = Math.round(fontsize * 1.3);
@@ -47,9 +48,11 @@ var makeLabel = function(options) {
   const strokeopacity = +options.strokeopacity || 1;
   const strokewidth = +options.strokewidth || Math.max(1, Math.round(height * 0.05));
   const color = options.color || '#d73a4a';
-  const bgcolor = tinycolor(color).darken(22).desaturate(30);
-  const fgcolor = getHexColor(options.fgcolor) || tinycolor(color).brighten(30).saturate(35);
-  const strokecolor = getHexColor(options.strokecolor) || fgcolor;
+  const values = new valuesjs("#" + color)
+  const bgcolor = values.shade(50).hexString();
+  const fgcolor = options.fgcolor || values.tint(50).hexString();
+  console.log(getBrightness(color))
+  const strokecolor = options.strokecolor || fgcolor;
 
   return (
 `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">

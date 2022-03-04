@@ -19,8 +19,8 @@
     "koa-qs": "~3.0.0",
     "koa-send": "~5.0.1",
     "string-pixel-width": "~1.10.0",
-    "xml-escape": "~1.1.0",
-    "tinycolor2": "~1.4.2"
+    "values.js": "^2.0.0",
+    "xml-escape": "~1.1.0"
   },
   "devDependencies": {
     "coveralls": "^3.1.0",
