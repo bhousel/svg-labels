@@ -1,5 +1,6 @@
 const pixelWidth = require('string-pixel-width');
 const xmlEscape = require('xml-escape');
+const tinycolor = require('tinycolor2')
 
 
 function getHexColor(str) {
@@ -43,11 +44,12 @@ var makeLabel = function(options) {
   const texty = Math.round(height * 0.7);
   // const roundness = Math.max(1, Math.round(height * 0.1));
   const roundness = Math.max(1, Math.round(height / 2));
-  const strokeopacity = +options.strokeopacity || 0.12;
+  const strokeopacity = +options.strokeopacity || 1;
   const strokewidth = +options.strokewidth || Math.max(1, Math.round(height * 0.05));
-  const bgcolor = getHexColor(options.bgcolor) || '#ee0701';
-  const fgcolor = getHexColor(options.fgcolor) || (getBrightness(bgcolor) > 140.5 ? '#333026' : '#fff');
-  const strokecolor = getHexColor(options.strokecolor) || '#273135';
+  const color = options.color || '#d73a4a';
+  const bgcolor = tinycolor(color).darken(18).desaturate(30);
+  const fgcolor = getHexColor(options.fgcolor) || tinycolor(options.color).brighten(25).saturate(30);
+  const strokecolor = getHexColor(options.strokecolor) || fgcolor;
 
   return (
 `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
