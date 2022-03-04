@@ -1,8 +1,4 @@
-[![build](https://github.com/bhousel/svg-labels/workflows/build/badge.svg)](https://github.com/bhousel/svg-labels/actions?query=workflow%3A%22build%22)
-[![npm version](https://badge.fury.io/js/svg-labels.svg)](https://badge.fury.io/js/svg-labels)
-
-
-## svg-labels
+## svg-labels-dark
 
 Generate <sub>![awesome](https://labl.es/svg?text=awesome&bgcolor=0052cc)</sub> GitHub-style labels in SVG.
 
