@@ -47,8 +47,8 @@ var makeLabel = function(options) {
   const strokeopacity = +options.strokeopacity || 1;
   const strokewidth = +options.strokewidth || Math.max(1, Math.round(height * 0.05));
   const color = options.color || '#d73a4a';
-  const bgcolor = tinycolor(color).darken(18).desaturate(30);
-  const fgcolor = getHexColor(options.fgcolor) || tinycolor(options.color).brighten(25).saturate(30);
+  const bgcolor = tinycolor(color).darken(22).desaturate(30);
+  const fgcolor = getHexColor(options.fgcolor) || tinycolor(color).brighten(30).saturate(35);
   const strokecolor = getHexColor(options.strokecolor) || fgcolor;
 
   return (
