@@ -47,7 +47,7 @@ It works just like similar badge generator sites like [shields.io](https://shiel
 
 All hex colors can be passed either as 3 or 6 characters, and the '#' is optional.
 
-
+<!---
 ### Server
 
 [server.js](server.js) contains a simple microservice built on the
@@ -56,13 +56,13 @@ All hex colors can be passed either as 3 or 6 characters, and the '#' is optiona
 `npm run start` will start the server on port 3000.
 
 This is the same code that serves up [labl.es](https://labl.es).
-
+--->
 
 ### Bugs
 
 There may be <sub>![bugs](https://labl.es/svg?text=bugs&bgcolor=ee0701)</sub> !
 
-Report any issues here:  https://github.com/bhousel/svg-labels/issues
+Report any issues here:  https://github.com/BenCinn/svg-labels-dark/issues
 
 
 ## License
