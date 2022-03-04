@@ -49,7 +49,7 @@ var makeLabel = function(options) {
   const strokewidth = +options.strokewidth || Math.max(1, Math.round(height * 0.05));
   const color = options.color || 'd73a4a';
   const values = new valuesjs("#" + color)
-  const bgcolor = values.shade(50).hexString();
+  const bgcolor = options.color || values.shade(50).hexString();
   const fgcolor = options.fgcolor || values.tint(50).hexString();
   console.log(getBrightness(color))
   const strokecolor = options.strokecolor || fgcolor;
