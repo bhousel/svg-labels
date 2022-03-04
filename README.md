@@ -13,8 +13,8 @@ embedding that instead:
 
 ![bug](https://svg-labels-dark.herokuapp.com/svg?text=bug&color=ee0701)
 ![duplicate](https://svg-labels-dark.herokuapp.com/svg?text=duplicate&color=cccccc)
-![enhancement](https://svg-labels-dark.herokuapp.com/svg?text=enhancement&bgcolor=84b6eb)
-![help wanted](https://svg-labels-dark.herokuapp.com/svg?text=help%20wanted&bgcolor=128A0C)
+![enhancement](https://svg-labels-dark.herokuapp.com/svg?text=enhancement&color=84b6eb)
+![help wanted](https://svg-labels-dark.herokuapp.com/svg?text=help%20wanted&color=128A0C)
 ![invalid](https://svg-labels-dark.herokuapp.com/svg?text=invalid&color=e6e6e6)
 ![question](https://svg-labels-dark.herokuapp.com/svg?text=question&color=cc317c)
 ![wontfix](https://svg-labels-dark.herokuapp.com/svg?text=wontfix&color=ffffff)
@@ -37,11 +37,12 @@ It works just like similar badge generator sites like [shields.io](https://shiel
 | option.width         | number | calculated        | Label width - calculated based on fontsize, but you can override it. |
 | option.strokeopacity | number | 0.12              | Opacity for the shadow outline. |
 | option.strokewidth   | number | calculated        | Shadow stroke width - also calculated but you can override it. |
-| option.bgcolor       | hex    | #ee0701           | Background color of the label. |
-| option.fgcolor       | hex    | #333026 / #ffffff | Foreground color of the label - calculated for light/dark backgrounds but you can override it. |
-| option.strokecolor   | hex    | #273135           | Stroke color for the shadow outline. |
+| option.color         | hex    | d73a4a            | Hex of the color you want.
+| option.bgcolor       | hex    | calculated        | Background color of the label. |
+| option.fgcolor       | hex    | calculated        | Foreground color of the label - calculated for light/dark backgrounds but you can override it. |
+| option.strokecolor   | hex    | calculated        | Stroke color for the shadow outline. |
 
-All hex colors can be passed either as 3 or 6 characters, and the '#' is optional.
+All hex colors can be passed as 6 characters, and the '#' is optional.
 
 <!---
 ### Server
@@ -56,7 +57,7 @@ This is the same code that serves up [labl.es](https://labl.es).
 
 ### Bugs
 
-There may be <sub>![bugs](https://labl.es/svg?text=bugs&bgcolor=ee0701)</sub> !
+There may be <sub>![bugs](https://svg-labels-dark.herokuapp.com/svg?text=bugs&color=ee0701)</sub> !
 
 Report any issues here:  https://github.com/BenCinn/svg-labels-dark/issues
 
