@@ -1,7 +1,7 @@
 const pixelWidth = require('string-pixel-width');
 const xmlEscape = require('xml-escape');
 const valuesjs = require('values.js');
-const Values = require('values.js');
+const ValuesJS = require('values.js');
 
 
 function getHexColor(str) {
@@ -48,7 +48,7 @@ var makeLabel = function(options) {
   const strokeopacity = +options.strokeopacity || 1;
   const strokewidth = +options.strokewidth || Math.max(1, Math.round(height * 0.05));
   const color = options.color || 'd73a4a';
-  const values = new valuesjs("#" + color)
+  const values = new ValuesJS("#" + color)
   const bgcolor = options.bgcolor || values.shade(50).hexString();
   const fgcolor = options.fgcolor || values.tint(50).hexString();
   console.log(getBrightness(color))
