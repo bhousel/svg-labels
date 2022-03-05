@@ -41,8 +41,8 @@ var makeLabel = function(options) {
   const width = +options.width || Math.round(pwidth) + pad;
   // const height = Math.round(fontsize * 1.6666);
   const height = Math.round(fontsize * 1.8333);
-  const textx = Math.round(width / 2);
-  const texty = Math.round(height * 0.7);
+  const textx = Math.round(width / 2) + 2;
+  const texty = Math.round(height * 0.7) + 2;
   // const roundness = Math.max(1, Math.round(height * 0.1));
   const roundness = Math.round(height / 2)
   const strokeopacity = +options.strokeopacity || 1;
@@ -53,10 +53,12 @@ var makeLabel = function(options) {
   const fgcolor = options.fgcolor || values.tint(50).hexString();
   console.log(getBrightness(color))
   const strokecolor = options.strokecolor || fgcolor;
+  const boxwidth = width + 4
+  const boxheight = height + 4
 
   return (
-`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
-<rect width="${width}" height="${height}" rx="${roundness}" ry="${roundness}" fill="${bgcolor}" stroke="${strokecolor}" stroke-width="${strokewidth}" stroke-opacity="${strokeopacity}" stroke-linejoin="round"/>
+`<svg xmlns="http://www.w3.org/2000/svg" width="${boxwidth}" height="${boxheight}">
+<rect width="${width}" height="${height}" rx="${roundness}" ry="${roundness}" fill="${bgcolor}" stroke="${strokecolor}" stroke-width="${strokewidth}" stroke-opacity="${strokeopacity}" stroke-linejoin="round" x="2" y="2"/>
 <text x="${textx}" y="${texty}" fill="${fgcolor}" text-anchor="middle" font-family="${xmlEscape(fontfamily)}" font-size="${fontsize}" font-weight="${fontweight}">${xmlEscape(text)}</text></svg>`
   );
 }
