@@ -1,5 +1,7 @@
 const pixelWidth = require('string-pixel-width');
 const xmlEscape = require('xml-escape');
+const ValuesJS = require('values.js')
+const colorlib = require('color')
 
 
 function getHexColor(str) {
@@ -45,9 +47,21 @@ var makeLabel = function(options) {
   const roundness = Math.max(1, Math.round(height / 2));
   const strokeopacity = +options.strokeopacity || 0.12;
   const strokewidth = +options.strokewidth || Math.max(1, Math.round(height * 0.05));
-  const bgcolor = getHexColor(options.bgcolor) || '#ee0701';
-  const fgcolor = getHexColor(options.fgcolor) || (getBrightness(bgcolor) > 140.5 ? '#333026' : '#fff');
-  const strokecolor = getHexColor(options.strokecolor) || '#273135';
+  const dim = options.dimtheme || 'false';
+  let values;
+  let bgcolor;
+  let fgcolor;
+  let strokecolor;
+  if (dim == 'true') {
+    values = new ValuesJS(getHexColor(options.bgcolor) || '#ee0701');
+    bgcolor = values.shade(50).hexString();
+    fgcolor = options.fgcolor || colorlib(values.tint(84.451).hexString()).saturate(17).hex();
+    strokecolor = options.strokecolor || fgcolor;
+  } else {
+      bgcolor = getHexColor(options.bgcolor) || '#ee0701';
+      fgcolor = getHexColor(options.fgcolor) || (getBrightness(bgcolor) > 140.5 ? '#333026' : '#fff');
+      strokecolor = getHexColor(options.strokecolor) || '#273135';
+    }
 
   return (
 `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
