@@ -41,12 +41,15 @@ var makeLabel = function(options) {
   const width = +options.width || Math.round(pwidth) + pad;
   // const height = Math.round(fontsize * 1.6666);
   const height = Math.round(fontsize * 1.8333);
-  const textx = Math.round(width / 2);
-  const texty = Math.round(height * 0.7);
+  const strokewidth = +options.strokewidth || Math.max(1, Math.round(height * 0.05));
+  const rectpos = Math.round((2 + strokewidth) / 2);
+  const textx = Math.round(width / 2) + rectpos;
+  const texty = Math.round(height * 0.7) + rectpos;
+  const boxwidth = width + rectpos * 2;
+  const boxheight = height + rectpos * 2;
   // const roundness = Math.max(1, Math.round(height * 0.1));
   const roundness = Math.max(1, Math.round(height / 2));
   const strokeopacity = +options.strokeopacity || 0.12;
-  const strokewidth = +options.strokewidth || Math.max(1, Math.round(height * 0.05));
   const dim = options.dimtheme || 'false';
   let values;
   let bgcolor;
@@ -64,8 +67,8 @@ var makeLabel = function(options) {
     }
 
   return (
-`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
-<rect width="${width}" height="${height}" rx="${roundness}" ry="${roundness}" fill="${bgcolor}" stroke="${strokecolor}" stroke-width="${strokewidth}" stroke-opacity="${strokeopacity}" stroke-linejoin="round"/>
+`<svg xmlns="http://www.w3.org/2000/svg" width="${boxwidth}" height="${boxheight}">
+<rect x="${rectpos}" y="${rectpos}" width="${width}" height="${height}" rx="${roundness}" ry="${roundness}" fill="${bgcolor}" stroke="${strokecolor}" stroke-width="${strokewidth}" stroke-opacity="${strokeopacity}" stroke-linejoin="round"/>
 <text x="${textx}" y="${texty}" fill="${fgcolor}" text-anchor="middle" font-family="${xmlEscape(fontfamily)}" font-size="${fontsize}" font-weight="${fontweight}">${xmlEscape(text)}</text></svg>`
   );
 }
