@@ -1,8 +1,7 @@
 const pixelWidth = require('string-pixel-width');
 const xmlEscape = require('xml-escape');
-const valuesjs = require('values.js');
 const ValuesJS = require('values.js');
-
+const colorlib = require('color')
 
 function getHexColor(str) {
   if (typeof str !== 'string') return null;
@@ -50,8 +49,7 @@ var makeLabel = function(options) {
   const color = options.color || 'd73a4a';
   const values = new ValuesJS("#" + color)
   const bgcolor = options.bgcolor || values.shade(50).hexString();
-  const fgcolor = options.fgcolor || values.tint(50).hexString();
-  console.log(getBrightness(color))
+  const fgcolor = options.fgcolor || colorlib(values.tint(84.451).hexString()).saturate(17).hex();
   const strokecolor = options.strokecolor || fgcolor;
   const boxwidth = width + 4
   const boxheight = height + 4
