@@ -14,7 +14,7 @@
     "labels"
   ],
   "dependencies": {
-    "@koa/router": "~10.0.0",
+    "@koa/router": "~12.0.1",
     "koa": "~2.13.0",
     "koa-qs": "~3.0.0",
     "koa-send": "~5.0.1",
