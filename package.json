@@ -22,14 +22,13 @@
     "xml-escape": "~1.1.0"
   },
   "devDependencies": {
-    "coveralls": "^3.1.0",
-    "tap": "^16.1.0"
-  },
-  "engines": {
-    "node": ">=10"
+    "c8": "^8.0.1"
   },
   "scripts": {
     "start": "node server.js",
-    "test": "tap --reporter terse --no-coverage test/*.js"
+    "test": "c8 node --test test/*.js"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

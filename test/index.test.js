@@ -1,16 +1,16 @@
-const fs = require('fs');
-const path = require('path');
-const test = require('tap').test;
+const test = require('node:test').test;
+const assert = require('node:assert').strict;
+const fs = require('node:fs');
 const makeLabel = require('../.');
 
 
 function fixture(name) {
-  const buffer = fs.readFileSync(path.normalize(`${__dirname}//fixtures//${name}.svg`));
+  const buffer = fs.readFileSync(`./test/fixtures/${name}.svg`);
   return buffer.toString();
 }
 
 
-test('makeLabel', t => {
+test('makeLabel', async t => {
 
 // | option.text          | string | 'bug'             | Label text - will appear centered on the label. |
 // | option.fontfamily    | string | 'Helvetica,Arial' | Text font - we just pass this directly into the SVG file. |
@@ -23,116 +23,83 @@ test('makeLabel', t => {
 // | option.fgcolor       | hex    | #333026 / #ffffff | Foreground color of the label - calculated for light/dark backgrounds but you can override it. |
 // | option.strokecolor   | hex    | #273135           | Stroke color for the shadow outline. |
 
-  t.test('defaults', t => {
-    const results = makeLabel();
-    t.same(results, fixture('defaults'));
-    t.end();
+  await t.test('defaults', t => {
+    const result = makeLabel();
+    assert.deepEqual(result, fixture('defaults'));
   });
 
-  t.test('text', t => {
-    t.test('sets text', t => {
-      const results = makeLabel({ text: 'hello world' });
-      t.same(results, fixture('text1'));
-      t.end();
+  await t.test('text', async t => {
+    await t.test('sets text', t => {
+      const result = makeLabel({ text: 'hello world' });
+      assert.deepEqual(result, fixture('text1'));
     });
-
-    t.end();
   });
 
-  t.test('fgcolor', t => {
-    t.test('sets fgcolor', t => {
-      const results = makeLabel({ fgcolor: 'efef00' });
-      t.same(results, fixture('fgcolor1'));
-      t.end();
+  await t.test('fgcolor', async t => {
+    await t.test('sets fgcolor', t => {
+      const result = makeLabel({ fgcolor: 'efef00' });
+      assert.deepEqual(result, fixture('fgcolor1'));
     });
-
-    t.end();
   });
 
-  t.test('bgcolor', t => {
-    t.test('sets dark bgcolor', t => {
-      const results = makeLabel({ bgcolor: '128a0c' });
-      t.same(results, fixture('bgcolor1'));
-      t.end();
+  await t.test('bgcolor', async t => {
+    await t.test('sets dark bgcolor', t => {
+      const result = makeLabel({ bgcolor: '128a0c' });
+      assert.deepEqual(result, fixture('bgcolor1'));
     });
-    t.test('sets light bgcolor', t => {
-      const results = makeLabel({ bgcolor: '84b6eb' });
-      t.same(results, fixture('bgcolor2'));
-      t.end();
+    await t.test('sets light bgcolor', t => {
+      const result = makeLabel({ bgcolor: '84b6eb' });
+      assert.deepEqual(result, fixture('bgcolor2'));
     });
-
-    t.end();
   });
 
-  t.test('fontsize', t => {
-    t.test('sets fontsize', t => {
-      const results = makeLabel({ fontsize: '20' });
-      t.same(results, fixture('fontsize'));
-      t.end();
+  await t.test('fontsize', async t => {
+    await t.test('sets fontsize', t => {
+      const result = makeLabel({ fontsize: '20' });
+      assert.deepEqual(result, fixture('fontsize'));
     });
-
-    t.end();
   });
 
-  t.test('fontweight', t => {
-    t.test('sets fontweight', t => {
-      const results = makeLabel({ fontweight: '200' });
-      t.same(results, fixture('fontweight'));
-      t.end();
+  await t.test('fontweight', async t => {
+    await t.test('sets fontweight', t => {
+      const result = makeLabel({ fontweight: '200' });
+      assert.deepEqual(result, fixture('fontweight'));
     });
-
-    t.end();
   });
 
-  t.test('width', t => {
-    t.test('sets width', t => {
-      const results = makeLabel({ width: '150' });
-      t.same(results, fixture('width'));
-      t.end();
+  await t.test('width', async t => {
+    await t.test('sets width', t => {
+      const result = makeLabel({ width: '150' });
+      assert.deepEqual(result, fixture('width'));
     });
-
-    t.end();
   });
 
-  t.test('fontfamily', t => {
-    t.test('sets fontfamily', t => {
-      const results = makeLabel({ fontfamily: 'Courier New' });
-      t.same(results, fixture('fontfamily'));
-      t.end();
+  await t.test('fontfamily', async t => {
+    await t.test('sets fontfamily', t => {
+      const result = makeLabel({ fontfamily: 'Courier New' });
+      assert.deepEqual(result, fixture('fontfamily'));
     });
-
-    t.end();
   });
 
-  t.test('strokeopacity', t => {
-    t.test('sets strokeopacity', t => {
-      const results = makeLabel({ strokeopacity: '1' });
-      t.same(results, fixture('strokeopacity'));
-      t.end();
+  await t.test('strokeopacity', async t => {
+    await t.test('sets strokeopacity', t => {
+      const result = makeLabel({ strokeopacity: '1' });
+      assert.deepEqual(result, fixture('strokeopacity'));
     });
-
-    t.end();
   });
 
-  t.test('strokewidth', t => {
-    t.test('sets strokewidth', t => {
-      const results = makeLabel({ strokewidth: '8' });
-      t.same(results, fixture('strokewidth'));
-      t.end();
+  await t.test('strokewidth', async t => {
+    await t.test('sets strokewidth', t => {
+      const result = makeLabel({ strokewidth: '8' });
+      assert.deepEqual(result, fixture('strokewidth'));
     });
-
-    t.end();
   });
 
-  t.test('strokecolor', t => {
-    t.test('sets strokecolor', t => {
-      const results = makeLabel({ strokecolor: '00f' });
-      t.same(results, fixture('strokecolor'));
-      t.end();
+  await t.test('strokecolor', async t => {
+    await t.test('sets strokecolor', t => {
+      const result = makeLabel({ strokecolor: '00f' });
+      assert.deepEqual(result, fixture('strokecolor'));
     });
-
-    t.end();
   });
 
-  t.end();
 });
